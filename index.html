@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ヤマハ幼児科で習う和音</title>
+    <style>
+        body {
+            font-family: 'Hiragino Sans', 'Meiryo', sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            position: relative;
+        }
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+        .play-button {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 24px;
+            cursor: pointer;
+            margin-left: 8px;
+            font-size: 12px;
+            vertical-align: middle;
+        }
+        .cell-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ヤマハ幼児科で習う和音</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>調</th>
+                <th>符号</th>
+                <th>トニック<br>I<br>安定</th>
+                <th>ドミナント<br>V (V7)<br>不安定</th>
+                <th>サブドミナント<br>IV<br>やや不安定</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ハ長調</td>
+                <td></td>
+                <td>
+                    <div class="cell-content">
+                        ドミソ
+                        <div class="play-button" onclick="playSound('ハ長調「ドミソ」')">▶</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="cell-content">
+                        シファソ
+                        <div class="play-button" onclick="playSound('ハ長調「シファソ」')">▶</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="cell-content">
+                        ドファラ
+                        <div class="play-button" onclick="playSound('ハ長調「ドファラ」')">▶</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>ト長調</td>
+                <td>ファ♯</td>
+                <td>
+                    <div class="cell-content">
+                        ソシレ
+                        <div class="play-button" onclick="playSound('ト長調「ソシレ」')">▶</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="cell-content">
+                        ファ♯ドレ
+                        <div class="play-button" onclick="playSound('ト長調「ファ♯ドレ」')">▶</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="cell-content">
+                        ソドミ
+                        <div class="play-button" onclick="playSound('ト長調「ソドミ」')">▶</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>ヘ長調</td>
+                <td>シ♭</td>
+                <td>
+                    <div class="cell-content">
+                        ファラド
+                        <div class="play-button" onclick="playSound('ヘ長調「ファラド」')">▶</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="cell-content">
+                        ミシ♭ド
+                        <div class="play-button" onclick="playSound('ヘ長調「ミシ♭ド」')">▶</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="cell-content">
+                        ファシ♭レ
+                        <div class="play-button" onclick="playSound('ヘ長調「ファシ♭レ」')">▶</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>イ短調</td>
+                <td></td>
+                <td>
+                    <div class="cell-content">
+                        ラドミ
+                        <div class="play-button" onclick="playSound('イ短調「ラドミ」')">▶</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="cell-content">
+                        ソ♯レミ
+                        <div class="play-button" onclick="playSound('イ短調「ソ♯レミ」')">▶</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="cell-content">
+                        ラレファ<br>
+                        習わない
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>二短調</td>
+                <td>シ♭</td>
+                <td>
+                    <div class="cell-content">
+                        レファラ
+                        <div class="play-button" onclick="playSound('二短調「レファラ」')">▶</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="cell-content">
+                        ド♯ソラ
+                        <div class="play-button" onclick="playSound('二短調「ド♯ソラ」')">▶</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="cell-content">
+                        ソシ♭レ<br>
+                        習わない
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function playSound(soundName) {
+            const audio = new Audio(`sounds/${soundName}.wav`);
+            audio.play().catch(error => {
+                console.error('Error playing sound:', error);
+                alert('音声ファイルを読み込めませんでした。ファイルパスを確認してください。');
+            });
+        }
+    </script>
+</body>
+</html>
